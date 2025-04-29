@@ -10,7 +10,7 @@ interface GradientSectionProps {
   id?: string
 }
 
-export const GradientSection = forwardRef<HTMLElement, GradientSectionProps>(
+export const GradientSection = forwardRef<HTMLElement | null, GradientSectionProps>(
   ({ children, className, gradientClassName, id }, ref) => {
     return (
       <section

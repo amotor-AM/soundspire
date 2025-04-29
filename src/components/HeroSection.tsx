@@ -8,7 +8,7 @@ import { Button } from "./ui/button"
 
 interface HeroSectionProps {
   scrollToSection: (sectionId: string) => void
-  heroRef: React.RefObject<HTMLDivElement>
+  heroRef: React.RefObject<HTMLDivElement | null>
   handleCursorEnter: (variant: string, text?: string) => void
   handleCursorLeave: () => void
 }

@@ -18,7 +18,7 @@ interface ServiceItem {
 }
 
 interface ExpertiseSectionProps {
-    servicesRef: React.RefObject<HTMLElement>
+    servicesRef: React.RefObject<HTMLElement | null>
     handleCursorEnter: (variant: string, text?: string) => void
     handleCursorLeave: () => void
     scrollToSection: (sectionId: string) => void

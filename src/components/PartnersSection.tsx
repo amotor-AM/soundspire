@@ -10,7 +10,7 @@ interface PartnersItem {
 }
 
 interface PartnersSectionProps {
-  partnersRef: React.RefObject<HTMLElement>
+  partnersRef: React.RefObject<HTMLElement | null>
 }
 
 export default function PartnersSection({ partnersRef }: PartnersSectionProps) {

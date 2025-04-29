@@ -15,7 +15,7 @@ interface ContactFormData {
 }
 
 interface ContactSectionProps {
-  contactRef: React.RefObject<HTMLElement>
+  contactRef: React.RefObject<HTMLElement | null>
   handleCursorEnter: (variant: string, text?: string) => void
   handleCursorLeave: () => void
   handleSubmit: (e: React.FormEvent) => void

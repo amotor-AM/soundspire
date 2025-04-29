@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import { GradientSection } from "@/components/ui/gradient-section"
 
 interface AboutSectionProps {
-  aboutRef: React.RefObject<HTMLElement>
+  aboutRef: React.RefObject<HTMLElement | null>
   handleCursorEnter: (variant: string, text?: string) => void
   handleCursorLeave: () => void
 }

@@ -49,10 +49,10 @@ export default function Home() {
   })
   // Refs for sections
   const heroRef = useRef<HTMLDivElement>(null)
-  const servicesRef = useRef<HTMLDivElement>(null)
-  const aboutRef = useRef<HTMLDivElement>(null) // Changed from portfolioRef
-  const partnersRef = useRef<HTMLDivElement>(null)
-  const contactRef = useRef<HTMLDivElement>(null)
+  const servicesRef = useRef<HTMLElement>(null)
+  const aboutRef = useRef<HTMLElement>(null)
+  const partnersRef = useRef<HTMLElement>(null)
+  const contactRef = useRef<HTMLElement>(null)
 
   // Mouse position for interactive elements
   const mouseX = useMotionValue(0)

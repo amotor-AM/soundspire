@@ -48,7 +48,7 @@ export default function Home() {
     message: "",
   })
   // Refs for sections
-  const heroRef = useRef<HTMLDivElement>(null)
+  const heroRef = useRef<HTMLElement>(null)
   const servicesRef = useRef<HTMLElement>(null)
   const aboutRef = useRef<HTMLElement>(null)
   const partnersRef = useRef<HTMLElement>(null)

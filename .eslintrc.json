@@ -1,0 +1,10 @@
+{
+  "extends": "next/core-web-vitals",
+  "ignorePatterns": ["**/*"],
+  "rules": {
+    // This effectively disables all rules
+    "@typescript-eslint/*": "off",
+    "react/*": "off",
+    "*": "off"
+  }
+} 

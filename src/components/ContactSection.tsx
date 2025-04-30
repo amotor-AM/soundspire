@@ -105,7 +105,7 @@ export default function ContactSection({
           transition={{ duration: 0.5 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <div className="inline-block rounded-full bg-cyan-900/30 border border-cyan-500/30 px-3 py-1 text-sm text-cyan-400 font-medium mb-4">
+          <div className="inline-block rounded-full bg-indigo-900/30 border border-indigo-500/30 px-3 py-1 text-sm text-indigo-400 font-medium mb-4">
             Get In Touch
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">
@@ -123,7 +123,7 @@ export default function ContactSection({
             transition={{ duration: 0.5 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <div className="bg-black/50 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-cyan-500/30">
+            <div className="bg-black/50 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-indigo-300/10 hover:border-indigo-300/40">
               <h3 className="text-2xl font-bold mb-6 text-white">Send Us a Message</h3>
 
               <form className="space-y-4" onSubmit={onSubmit} noValidate>
@@ -139,9 +139,9 @@ export default function ContactSection({
                       value={formData.name}
                       onChange={handleInputChange}
                       onBlur={(e) => validateField("name", e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg bg-cyan-950/30 border ${
-                        errors.name ? "border-red-500" : "border-cyan-500/30"
-                      } text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500`}
+                      className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${
+                        errors.name ? "border-red-500" : "border-indigo-500/30"
+                      } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
                       placeholder="Your name"
                       required
                     />
@@ -158,9 +158,9 @@ export default function ContactSection({
                       value={formData.email}
                       onChange={handleInputChange}
                       onBlur={(e) => validateField("email", e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg bg-cyan-950/30 border ${
-                        errors.email ? "border-red-500" : "border-cyan-500/30"
-                      } text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500`}
+                      className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${
+                        errors.email ? "border-red-500" : "border-indigo-500/30"
+                      } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
                       placeholder="Your email"
                       required
                     />
@@ -179,9 +179,9 @@ export default function ContactSection({
                     value={formData.subject}
                     onChange={handleInputChange}
                     onBlur={(e) => validateField("subject", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg bg-cyan-950/30 border ${
-                      errors.subject ? "border-red-500" : "border-cyan-500/30"
-                    } text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500`}
+                    className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${
+                      errors.subject ? "border-red-500" : "border-indigo-500/30"
+                    } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
                     placeholder="Subject"
                     required
                   />
@@ -199,9 +199,9 @@ export default function ContactSection({
                     value={formData.message}
                     onChange={handleInputChange}
                     onBlur={(e) => validateField("message", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg bg-cyan-950/30 border ${
-                      errors.message ? "border-red-500" : "border-cyan-500/30"
-                    } text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500`}
+                    className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${
+                      errors.message ? "border-red-500" : "border-indigo-500/30"
+                    } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
                     placeholder="Your message"
                     required
                   />
@@ -216,7 +216,7 @@ export default function ContactSection({
                 >
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#8C39E0] via-[#C651F2] to-[#FF3BFF] hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white border-0 relative overflow-hidden group"
+                    className="w-full bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white border-0 relative overflow-hidden group"
                   >
                     <span className="relative z-10">Send Message</span>
                     <motion.div

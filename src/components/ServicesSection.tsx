@@ -3,11 +3,10 @@
 import type React from "react"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Headphones, Mic, Radio, MessageSquare } from "lucide-react"
+import { ArrowRight, LineChart, Users, BarChart3, AudioWaveform } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "./ui/card"
 import { TextReveal } from "./ui/text-reveal"
-import { GradientSection } from "@/components/ui/gradient-section"
 
 interface ServiceItem {
     icon: React.ReactNode
@@ -33,41 +32,37 @@ export default function ServicesSection({
     // Services data
     const services: ServiceItem[] = [
         {
-            icon: <Mic className="w-10 h-10" />,
-            title: "Podcast Advertising",
-            description: "Strategic podcast sponsorships and host-read ads that connect with engaged, targeted audiences.",
-            stats: ["78% Brand Recall", "4.5x ROI", "32% New Customer Acquisition"],
+            icon: <LineChart className="w-10 h-10" />,
+            title: "Smart Ad Buying",
+            description: "Strategic media buying powered by industry relationships and data-driven insights. We secure premium ad placements across the audio landscape at optimal rates, maximizing your ROI.",
+            stats: ["25% Cost Savings", "2.4x ROI", "65% Premium Spots"],
             color: "from-cyan-500 to-blue-600",
         },
         {
-            icon: <Radio className="w-10 h-10" />,
-            title: "Social Media Campaigns",
-            description: "Data-driven social campaigns that drive engagement, conversions, and measurable business results.",
-            stats: ["45% Average ROI", "3.2M+ Impressions", "12% Conversion Rate"],
+            icon: <Users className="w-10 h-10" />,
+            title: "Finding Your Fans",
+            description: "Advanced audience targeting and segmentation to connect with your ideal listeners. We analyze demographics, behaviors, and interests to ensure your message reaches the right ears.",
+            stats: ["76% Audience Match", "2.8x Engagement", "18% Higher CTR"],
             color: "from-purple-500 to-violet-600",
         },
         {
-            icon: <MessageSquare className="w-10 h-10" />,
-            title: "Influencer Marketing",
-            description: "Authentic partnerships with creators who align with your brand values and target audience.",
-            stats: ["89% Trust Rating", "5.7M+ Reach", "18% Engagement Rate"],
+            icon: <BarChart3 className="w-10 h-10" />,
+            title: "Fine-Tuning & Tracking",
+            description: "Real-time performance analytics and optimization. We continuously monitor, measure, and refine your campaigns using industry-leading tools to maximize impact and ROI.",
+            stats: ["Daily Reporting", "12% Lift", "98% Uptime"],
             color: "from-fuchsia-500 to-pink-600",
         },
         {
-            icon: <Headphones className="w-10 h-10" />,
-            title: "Audio Production",
-            description: "Professional audio content creation that captivates listeners and elevates your brand message.",
-            stats: ["67% Increase in Engagement", "3x Content ROI", "42% Reduced CAC"],
+            icon: <AudioWaveform className="w-10 h-10" />,
+            title: "Making Awesome Audio",
+            description: "Professional audio production that captures attention and drives action. From compelling ad scripts to perfect sound design, we create memorable audio experiences that elevate your brand.",
+            stats: ["85% Listen-Through", "4.2/5 Quality", "22% Brand Recall"],
             color: "from-blue-500 to-indigo-600",
         },
     ]
 
     return (
-        <GradientSection 
-            className="py-20 md:py-32"
-            gradientClassName="bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.06),transparent_65%)]"
-            ref={servicesRef}
-        >
+        <section ref={servicesRef} className="py-20 md:py-32">
             <div className="container mx-auto px-4">
                 <motion.div
                     className="text-center mb-16"
@@ -76,12 +71,12 @@ export default function ServicesSection({
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true, margin: "-100px" }}
                 >
-                    <div className="inline-block rounded-full bg-cyan-900/30 border border-cyan-500/30 px-3 py-1 text-sm text-cyan-400 font-medium mb-4">
+                    <div className="inline-block rounded-full bg-indigo-900/30 border border-indigo-500/30 px-3 py-1 text-sm text-indigo-400 font-medium mb-4">
                         Our Expertise
                     </div>
                     <div className="p-3 flex justify-center w-full">
-                        <TextReveal 
-                            text="You Know Your Business" 
+                        <TextReveal
+                            text="You Know Your Business"
                             revealText="We Know How To Market It"
                             className="w-full"
                         />
@@ -107,7 +102,7 @@ export default function ServicesSection({
                             onMouseEnter={() => handleCursorEnter("card")}
                             onMouseLeave={handleCursorLeave}
                         >
-                            <Card className="h-full bg-black/50 backdrop-blur-sm border border-[#8C39E0]/30 hover:border-[#8C39E0]/40 transition-all shadow-lg overflow-hidden">
+                            <Card className="h-full backdrop-blur-sm border border-indigo-300/10 hover:border-indigo-300/40 transition-all shadow-lg overflow-hidden">
                                 <CardContent className="p-6">
                                     <div
                                         className={`w-16 h-16 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 text-white`}
@@ -145,26 +140,26 @@ export default function ServicesSection({
                 >
                     <Button
                         onClick={() => scrollToSection("contact")}
-                        className="bg-gradient-to-r from-[#8C39E0] via-[#C651F2] to-[#FF3BFF] hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white px-8 py-6 text-lg w-full sm:w-auto border-0 relative overflow-hidden group"
+                        className="bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white px-8 py-6 text-lg w-full sm:w-auto border-0 relative overflow-hidden group"
                         onMouseEnter={() => handleCursorEnter("button", "Discuss Your Project")}
                         onMouseLeave={handleCursorLeave}
                     >
                         <span className="relative z-10">Discuss Your Project</span>
                         <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-[#8C39E0] to-[#FF3BFF] opacity-0 group-hover:opacity-100"
-                      animate={{
-                        background: [
-                          "linear-gradient(90deg, #8C39E0 0%, #FF3BFF 100%)",
-                          "linear-gradient(90deg, #FF3BFF 0%, #8C39E0 100%)",
-                          "linear-gradient(90deg, #8C39E0 0%, #FF3BFF 100%)",
-                        ],
-                      }}
-                      transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                    />
+                            className="absolute inset-0 bg-gradient-to-r from-[#8C39E0] to-[#FF3BFF] opacity-0 group-hover:opacity-100"
+                            animate={{
+                                background: [
+                                    "linear-gradient(90deg, #8C39E0 0%, #FF3BFF 100%)",
+                                    "linear-gradient(90deg, #FF3BFF 0%, #8C39E0 100%)",
+                                    "linear-gradient(90deg, #8C39E0 0%, #FF3BFF 100%)",
+                                ],
+                            }}
+                            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                        />
                         <ArrowRight className="ml-2 w-4 h-4 relative z-10" />
                     </Button>
                 </motion.div>
             </div>
-        </GradientSection>
+        </section>
     )
 }

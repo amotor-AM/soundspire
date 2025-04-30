@@ -5,7 +5,6 @@ import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { GradientSection } from "@/components/ui/gradient-section"
 
 interface AboutSectionProps {
   aboutRef: React.RefObject<HTMLElement | null>
@@ -54,7 +53,7 @@ export const PinContainer = ({
           style={{
             transform: transform,
           }}
-          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] bg-black border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
+          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
         >
           <div className={cn("relative z-50", className)}>{children}</div>
         </div>
@@ -75,7 +74,7 @@ export const PinPerspective = ({
         <div className="absolute top-0 inset-x-0 flex justify-center">
           <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10">
             <span className="relative z-20 text-white text-xs font-bold inline-block py-0.5">{title}</span>
-            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-cyan-400/0 via-cyan-400/90 to-cyan-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
+            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-indigo-400/0 via-indigo-400/90 to-indigo-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
           </div>
         </div>
 
@@ -98,7 +97,7 @@ export const PinPerspective = ({
                 repeat: Infinity,
                 delay: 0,
               }}
-              className="absolute left-1/2 top-1/2 h-[11.25rem] w-[11.25rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-cyan-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
+              className="absolute left-1/2 top-1/2 h-[11.25rem] w-[11.25rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-indigo-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
@@ -111,7 +110,7 @@ export const PinPerspective = ({
                 repeat: Infinity,
                 delay: 2,
               }}
-              className="absolute left-1/2 top-1/2 h-[11.25rem] w-[11.25rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-cyan-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
+              className="absolute left-1/2 top-1/2 h-[11.25rem] w-[11.25rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-indigo-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
@@ -124,16 +123,16 @@ export const PinPerspective = ({
                 repeat: Infinity,
                 delay: 4,
               }}
-              className="absolute left-1/2 top-1/2 h-[11.25rem] w-[11.25rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-cyan-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
+              className="absolute left-1/2 top-1/2 h-[11.25rem] w-[11.25rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-indigo-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
             />
           </>
         </div>
 
         <>
-          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-cyan-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]" />
-          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-cyan-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40" />
-          <motion.div className="absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-cyan-600 translate-y-[14px] w-[4px] h-[4px] rounded-full z-40 blur-[3px]" />
-          <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-cyan-300 translate-y-[14px] w-[2px] h-[2px] rounded-full z-40" />
+          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-indigo-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]" />
+          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-indigo-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40" />
+          <motion.div className="absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-indigo-600 translate-y-[14px] w-[4px] h-[4px] rounded-full z-40 blur-[3px]" />
+          <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-indigo-300 translate-y-[14px] w-[2px] h-[2px] rounded-full z-40" />
         </>
       </div>
     </motion.div>
@@ -187,22 +186,22 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
   // Founder data
   const founders = [
     {
-      name: "Ally Kandel",
-      role: "Co Founder & Podcast Expert",
-      image: "/Ally.jpeg",
-      linkedin: "https://www.linkedin.com/in/alisonkandel/",
-    },
-    {
       name: "Kristen Valentine",
       role: "Co Founder & Audio Ad Expert",
       image: "/Kristen.jpeg",
       linkedin: "https://www.linkedin.com/in/kristen-valentine-coseo-6675132a/",
     },
+    {
+      name: "Ally Kandel",
+      role: "Co Founder & Podcast Expert",
+      image: "/Ally.jpeg",
+      linkedin: "https://www.linkedin.com/in/alisonkandel/",
+    },
   ]
 
   return (
-    <GradientSection ref={aboutRef}>
-      <div className="container mx-auto px-4">
+    <section ref={aboutRef} className="py-20 md:py-32">
+      <div className="container mx-auto px-4 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.05),transparent_60%)]">
         <motion.div
           className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
@@ -210,10 +209,10 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
           transition={{ duration: 0.5 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <div className="inline-block rounded-full bg-cyan-900/30 border border-cyan-500/30 px-3 py-1 text-sm text-cyan-400 font-medium mb-4">
+          <div className="inline-block rounded-full bg-indigo-900/30 border border-indigo-500/30 px-3 py-1 text-sm text-indigo-400 font-medium mb-4">
             About Us
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] from-25% via-[#C651F2] from-40%to-[#8C39E0]">
             Sound Different. Stand Out.
           </h2>
         </motion.div>
@@ -246,6 +245,6 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
           ))}
         </div>
       </div>
-    </GradientSection>
+    </section>
   )
 }

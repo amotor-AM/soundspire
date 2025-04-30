@@ -40,7 +40,7 @@ export default function HeroSection({
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col items-center justify-center text-center w-8xl max-w-[80vw] mx-auto">
               <motion.div
-                className="inline-block rounded-full bg-cyan-900/30 border border-cyan-500/30 px-3 py-1 text-sm text-cyan-400 font-medium mb-6"
+                className="inline-block rounded-full bg-indigo-900/30 border border-indigo-500/30 px-3 py-1 text-sm text-indigo-400 font-medium mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -81,7 +81,7 @@ export default function HeroSection({
                 >
                   <Button
                     onClick={() => scrollToSection("contact")}
-                    className="bg-gradient-to-r from-[#8C39E0] via-[#C651F2] to-[#FF3BFF] hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white px-8 py-6 text-lg w-full sm:w-auto border-0 relative overflow-hidden group"
+                    className="bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white px-8 py-6 text-lg w-full sm:w-auto border-0 relative overflow-hidden group"
                   >
                     <span className="relative z-10">Get Started</span>
                     <motion.div

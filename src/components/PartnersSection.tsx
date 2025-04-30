@@ -27,7 +27,7 @@ export default function PartnersSection({ partnersRef }: PartnersSectionProps) {
   return (
     <section id="partners" ref={partnersRef} className="py-20 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.05),transparent_60%)]" />
+        <div className="absolute inset-0 translate-y-[15%] bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.05),transparent_60%)]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -38,7 +38,7 @@ export default function PartnersSection({ partnersRef }: PartnersSectionProps) {
           transition={{ duration: 0.5 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <div className="inline-block rounded-full bg-cyan-900/30 border border-cyan-500/30 px-3 py-1 text-sm text-cyan-400 font-medium mb-4">
+          <div className="inline-block rounded-full bg-indigo-900/30 border border-indigo-500/30 px-3 py-1 text-sm text-indigo-400 font-medium mb-4">
             Our Partners
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">

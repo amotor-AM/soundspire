@@ -187,7 +187,7 @@ export default function Home() {
       />
 
       {!isMobile && <FuturisticCursor variant={cursorVariant} text={cursorText} mouseX={mouseX} mouseY={mouseY} />}
-      
+
       {/* Multi-step loader */}
       <MultiStepLoader
         loadingStates={loadingStates}
@@ -222,7 +222,7 @@ export default function Home() {
 
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
-            // onClose={() => setIsMobileMenuOpen(false)}
+          // onClose={() => setIsMobileMenuOpen(false)}
           >
             {navItems.map((item, idx) => (
               <a
@@ -247,7 +247,7 @@ export default function Home() {
         </MobileNav>
       </Navbar>
       {/* Hero Section */}
-      <div className="absolute top-0 left-0 w-full">
+      <div className="absolute top-0 left-0 w-full max-w-[100vw] overflow-x-hidden">
         <HeroSection
           scrollToSection={scrollToSection}
           heroRef={heroRef}
@@ -257,7 +257,7 @@ export default function Home() {
       </div>
       <div className="relative">
         <div className="h-screen" />
-        <div className="w-full bg-[#0d1113]">
+        <div className="w-full bg-[#060e12]">
           <ServicesSection
             servicesRef={servicesRef}
             handleCursorEnter={handleCursorEnter}
@@ -266,7 +266,7 @@ export default function Home() {
           />
           <AboutSection aboutRef={aboutRef} handleCursorEnter={handleCursorEnter} handleCursorLeave={handleCursorLeave} />
 
-          <TestimonialsSection handleCursorEnter={handleCursorEnter} handleCursorLeave={handleCursorLeave} />
+          {/* <TestimonialsSection handleCursorEnter={handleCursorEnter} handleCursorLeave={handleCursorLeave} /> */}
 
           <PartnersSection partnersRef={partnersRef} />
 
@@ -277,12 +277,12 @@ export default function Home() {
             handleSubmit={handleSubmit}
             formData={formData}
             handleInputChange={handleInputChange}
-          /> 
+          />
+          <footer>
+            <Footer />
+          </footer>
         </div>
       </div>
-      <footer>
-        <Footer/>
-      </footer>
     </main>
   );
 }

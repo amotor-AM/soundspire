@@ -70,7 +70,7 @@ export default function FuturisticCursor({ variant, text, mouseX, mouseY }: Futu
         <>
           {/* Default cursor dot */}
           <motion.div
-            className="rounded-full bg-cyan-400"
+            className="rounded-full bg-indigo-400"
             animate={{
               width: variant === "default" ? 12 : 8,
               height: variant === "default" ? 12 : 8,
@@ -82,7 +82,7 @@ export default function FuturisticCursor({ variant, text, mouseX, mouseY }: Futu
           {/* Custom cursor ring */}
           {variant !== "default" && (
             <motion.div
-              className="absolute rounded-full border-2 border-cyan-400 flex items-center justify-center text-xs font-medium text-cyan-400"
+              className="absolute rounded-full border-2 border-indigo-400 flex items-center justify-center text-xs font-medium text-indigo-400"
               initial={{ width, height, opacity: 0 }}
               animate={{
                 width,

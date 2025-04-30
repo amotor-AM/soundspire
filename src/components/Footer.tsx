@@ -1,8 +1,8 @@
 import Link from "next/link"
-
+import {GradientSection} from "./ui/gradient-section"
 export default function Footer() {
   return (
-    <footer className="py-12 border-t border-cyan-900/30 relative">
+    <footer className="py-12 bg-gradient-to-t from-transparent via-black/10 to-blue-950/20 relative">
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
@@ -27,7 +27,6 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
           {/* <div>
             <h4 className="text-lg font-bold text-white mb-4">Services</h4>
             <ul className="space-y-2">

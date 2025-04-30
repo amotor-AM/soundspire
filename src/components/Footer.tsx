@@ -1,5 +1,4 @@
 import Link from "next/link"
-import {GradientSection} from "./ui/gradient-section"
 export default function Footer() {
   return (
     <footer className="py-12 bg-gradient-to-t from-transparent via-black/10 to-blue-950/20 relative">

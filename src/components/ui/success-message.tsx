@@ -1,27 +1,23 @@
 "use client"
 
 import type React from "react"
+import { useEffect } from "react"
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { CheckCircle } from "lucide-react"
-import { ConfettiExplosion } from "./confetti-explosion"
-// import { useState, useEffect } from "react"
 
 interface SuccessMessageProps {
   onClose: () => void
 }
 
 const SuccessMessage: React.FC<SuccessMessageProps> = ({ onClose }) => {
-  // const [isExploding, setIsExploding] = useState(false)
-
-  // useEffect(() => {
-  //   setIsExploding(true)
-  //   const timer = setTimeout(() => {
-  //     setIsExploding(false)
-  //   }, 2000)
-  //   return () => clearTimeout(timer)
-  // }, [])
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose()
+    }, 5000)
+    return () => clearTimeout(timer)
+  }, [onClose])
 
   return (
     <motion.div
@@ -30,9 +26,8 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({ onClose }) => {
       exit={{ opacity: 0, scale: 0.9 }}
       className="fixed inset-0 z-[100] flex items-center justify-center backdrop-blur-xl"
     >
-      <ConfettiExplosion/>
 
-      <div className="bg-black/80 border border-cyan-500/30 rounded-xl p-8 max-w-md w-full text-center shadow-2xl">
+      <div className="bg-black/80 border border-indego-500/30 rounded-xl p-8 max-w-md w-full text-center shadow-2xl">
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -42,7 +37,7 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({ onClose }) => {
             damping: 20,
             delay: 0.2,
           }}
-          className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mx-auto mb-6"
+          className="w-20 h-20 rounded-full bg-gradient-to-br from-indego-500 to-blue-600 flex items-center justify-center mx-auto mb-6"
         >
           <CheckCircle className="w-10 h-10 text-white" />
         </motion.div>
@@ -68,7 +63,7 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({ onClose }) => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
           <Button
             onClick={onClose}
-            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 border-0"
+            className="bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#8C39E0] hover:to-[#FF3BFF] text-white px-8 border-0"
           >
             Back to Website
           </Button>

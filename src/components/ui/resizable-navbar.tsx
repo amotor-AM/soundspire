@@ -7,6 +7,7 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 
 import React, { useRef, useState, useEffect } from "react";
@@ -119,7 +120,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 md:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-base font-medium text-white transition duration-200 md:flex lg:space-x-4",
         className,
       )}
     >
@@ -127,14 +128,14 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+          className="relative px-4 py-2 text-white hover:text-white/80"
           key={`link-${idx}`}
           href={item.link}
         >
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="absolute inset-0 h-full w-full rounded-full bg-white/10"
             />
           )}
           <span className="relative z-20">{item.name}</span>
@@ -243,9 +244,7 @@ export const NavbarLogo = () => {
     //   <span className="font-medium text-black dark:text-white">Startup</span>
     // </a>
     <Link href="/" className="flex mb-4">
-      <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">
-        Soundspire
-      </span>
+      <Image src="/images/logo.png" alt="Soundspire Logo" width={120} height={50} />
     </Link>
   );
 };
@@ -256,6 +255,7 @@ export const NavbarButton = ({
   children,
   className,
   variant = "primary",
+  onClick,
   ...props
 }: {
   href?: string;
@@ -263,29 +263,48 @@ export const NavbarButton = ({
   children: React.ReactNode;
   className?: string;
   variant?: "primary" | "secondary" | "dark" | "gradient";
+  onClick?: () => void;
 } & (
-    | React.ComponentPropsWithoutRef<"a">
-    | React.ComponentPropsWithoutRef<"button">
-  )) => {
+  | React.ComponentPropsWithoutRef<"a">
+  | React.ComponentPropsWithoutRef<"button">
+)) => {
   const baseStyles =
-    "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
+    "bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white px-4 py-2 text-md border-0 relative overflow-hidden group cursor-pointer transition-all duration-200";
 
   const variantStyles = {
-    primary:
-      "shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
+    primary: "relative overflow-hidden",
     secondary: "bg-transparent shadow-none dark:text-white",
     dark: "bg-black text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
-    gradient:
-      "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
+    gradient: "bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0] text-white",
+  };
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+    const contactSection = document.getElementById('contact');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <Tag
       href={href || undefined}
-      className={cn(baseStyles, variantStyles[variant], className)}
+      onClick={handleClick}
+      className={cn(baseStyles, variantStyles[variant], className, "rounded-md")}
       {...props}
     >
-      {children}
+      <span className="relative z-10 rounded-md">{children}</span>
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-[#8C39E0] to-[#FF3BFF] opacity-0 group-hover:opacity-100 rounded-md"
+        animate={{
+          background: [
+            "linear-gradient(90deg, #8C39E0 0%, #FF3BFF 100%)",
+            "linear-gradient(90deg, #FF3BFF 0%, #8C39E0 100%)",
+            "linear-gradient(90deg, #8C39E0 0%, #FF3BFF 100%)",
+          ],
+        }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+      />
     </Tag>
   );
 };
@@ -309,6 +328,7 @@ export const NavbarDemo = () => {
     <motion.div
       animate={{
         backdropFilter: visible ? "blur(10px)" : "none",
+        padding: visible ? "0 40px" : "0 20px",
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",

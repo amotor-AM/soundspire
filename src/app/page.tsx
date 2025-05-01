@@ -19,7 +19,7 @@ import SuccessMessage from "@/components/ui/success-message"
 // sections
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
-import TestimonialsSection from "@/components/TestamonialsSection";
+// import TestimonialsSection from "@/components/TestamonialsSection";
 import PartnersSection from "@/components/PartnersSection";
 import ContactSection from "@/components/ContactSection";
 import AboutSection from "@/components/AboutSection";
@@ -135,41 +135,27 @@ export default function Home() {
   }
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Form validation
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      alert("Please fill in all fields")
-      return
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(formData.email)) {
-      alert("Please enter a valid email address")
-      return
-    }
-
     setIsLoading(true)
-
-    // Simulate form submission with the multi-step loader
-    setTimeout(() => {
+    
+    try {
+      // Your form submission logic here
+      
+      // Show success message after loader completes
+      setTimeout(() => {
+        setIsLoading(false)
+        setShowSuccess(true)
+        
+        // Auto-close success message after 5 seconds
+        setTimeout(() => {
+          setShowSuccess(false)
+        }, 5000)
+      }, 2000) // Loader duration
+    } catch (error) {
+      console.error(error)
       setIsLoading(false)
-      setShowSuccess(true)
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      })
-    }, 6000) // Show each loading state for 2 seconds (3 states * 2 seconds)
-  }
-
-  // Close success message
-  const handleCloseSuccess = () => {
-    setShowSuccess(false)
+    }
   }
 
   return (
@@ -201,7 +187,7 @@ export default function Home() {
       />
 
       {/* Success message */}
-      {showSuccess && <SuccessMessage onClose={handleCloseSuccess} />}
+      {showSuccess && <SuccessMessage onClose={() => setShowSuccess(false)} />}
       <Navbar className="fixed top-0 left-0 right-0 z-50">
         <NavBody>
           <NavbarLogo />
@@ -274,7 +260,7 @@ export default function Home() {
             contactRef={contactRef}
             handleCursorEnter={handleCursorEnter}
             handleCursorLeave={handleCursorLeave}
-            handleSubmit={handleSubmit}
+            handleSubmit={handleFormSubmit}
             formData={formData}
             handleInputChange={handleInputChange}
           />

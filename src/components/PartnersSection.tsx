@@ -15,13 +15,13 @@ interface PartnersSectionProps {
 
 export default function PartnersSection({ partnersRef }: PartnersSectionProps) {
   const topRowPartners: PartnersItem[] = [
-    { name: "DragtKings", logo: "" },
-    { name: "SimpliSafe", logo: "" },
-    { name: "Lightstream", logo: "" },
-    { name: "Honey", logo: "" },
-    { name: "LegalZoom", logo: "" },
-    { name: "Uber", logo: "" },
-    { name: "Carshield", logo: "" }
+    { name: "DraftKings", logo: "/images/partners/DraftKings.svg" },
+    { name: "SimpliSafe", logo: "/images/partners/SimpliSafe.svg" },
+    { name: "Lightstream", logo: "/images/partners/Lightstream.svg" },
+    { name: "Honey", logo: "/images/partners/Honey.svg" },
+    { name: "LegalZoom", logo: "/images/partners/LegalZoom.svg" },
+    { name: "Uber", logo: "/images/partners/Uber.svg" },
+    { name: "Carshield", logo: "/images/partners/CarShield.png" }
   ]
 
   return (

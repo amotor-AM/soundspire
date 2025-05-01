@@ -188,13 +188,13 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
     {
       name: "Kristen Valentine",
       role: "Co Founder & Audio Ad Expert",
-      image: "/Kristen.jpeg",
+      image: "/images/Kristen.jpeg",
       linkedin: "https://www.linkedin.com/in/kristen-valentine-coseo-6675132a/",
     },
     {
       name: "Ally Kandel",
       role: "Co Founder & Podcast Expert",
-      image: "/Ally.jpeg",
+      image: "/images/Ally.jpeg",
       linkedin: "https://www.linkedin.com/in/alisonkandel/",
     },
   ]

@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 export default function Footer() {
   return (
@@ -6,9 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <Link href="/" className="flex mb-4">
-              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">
-                Soundspire
-              </span>
+              <Image src="/images/logo.png" alt="Soundspire Logo" width={120} height={60} />
             </Link>
             <p className="text-gray-400 mb-4">
               Cutting-edge advertising solutions for social media and podcast channels that drive measurable results.

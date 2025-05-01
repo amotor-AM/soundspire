@@ -8,7 +8,6 @@ export const InfiniteMovingLogos = ({
   items,
   direction = "left",
   speed = "normal",
-  pauseOnHover = true,
   className,
 }: {
   items: {
@@ -19,7 +18,6 @@ export const InfiniteMovingLogos = ({
   }[]
   direction?: "left" | "right"
   speed?: "fast" | "normal" | "slow"
-  pauseOnHover?: boolean
   className?: string
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null)
@@ -39,11 +37,11 @@ export const InfiniteMovingLogos = ({
   const getSpeed = useCallback(() => {
     if (containerRef.current) {
       if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s")
+        containerRef.current.style.setProperty("--animation-duration", "25s")
       } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s")
+        containerRef.current.style.setProperty("--animation-duration", "37.5s")
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s")
+        containerRef.current.style.setProperty("--animation-duration", "50s")
       }
     }
   }, [speed])
@@ -80,22 +78,21 @@ export const InfiniteMovingLogos = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex w-max min-w-full shrink-0 flex-nowrap gap-8 py-4",
-          start && "animate-scroll",
-          pauseOnHover && "hover:[animation-play-state:paused]",
+          "flex w-max min-w-full shrink-0 flex-nowrap gap-24 py-4",
+          start && "animate-scroll"
         )}
       >
         {items.map((item, idx) => (
           <li
-            className="relative flex h-24 w-48 shrink-0 items-center justify-center rounded-lg bg-black/5 p-4 backdrop-blur-sm transition-all hover:scale-105 dark:bg-white/5"
+            className="relative flex h-20 shrink-0 items-center justify-center transition-all hover:scale-105"
             key={`${item.name}-${idx}`}
           >
-            <div className="relative h-full w-full">
+            <div className="relative h-full w-[200px]">
               <Image
                 src={item.logo || "/placeholder.svg"}
                 alt={item.name}
                 fill
-                className="object-contain p-2 filter grayscale hover:grayscale-0 transition-all"
+                className="object-contain transition-all brightness-0 invert"
                 sizes="(max-width: 768px) 100vw, 200px"
               />
             </div>

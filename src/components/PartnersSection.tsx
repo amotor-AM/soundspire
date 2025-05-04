@@ -17,7 +17,7 @@ export default function PartnersSection({ partnersRef }: PartnersSectionProps) {
   const topRowPartners: PartnersItem[] = [
     { name: "DraftKings", logo: "/images/partners/DraftKings.svg" },
     { name: "SimpliSafe", logo: "/images/partners/SimpliSafe.svg" },
-    { name: "Lightstream", logo: "/images/partners/Lightstream.svg" },
+    { name: "Lightstream", logo: "/images/partners/LightStream.svg" },
     { name: "Honey", logo: "/images/partners/Honey.svg" },
     { name: "LegalZoom", logo: "/images/partners/LegalZoom.svg" },
     { name: "Uber", logo: "/images/partners/Uber.svg" },

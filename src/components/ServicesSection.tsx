@@ -12,7 +12,7 @@ interface ServiceItem {
     icon: React.ReactNode
     title: string
     description: string
-    stats: string[]
+    stats?: string[]
     color: string
 }
 
@@ -35,12 +35,12 @@ export default function ServicesSection({
             icon: <LineChart className="w-10 h-10" />,
             title: "Smart Ad Buying",
             description: "Strategic media buying powered by industry relationships and data-driven insights. We secure premium ad placements across the audio landscape at optimal rates, maximizing your ROI.",
-            stats: ["25% Cost Savings", "2.4x ROI", "65% Premium Spots"],
+            // stats: ["25% Cost Savings", "2.4x ROI", "65% Premium Spots"],
             color: "from-cyan-500 to-blue-600",
         },
         {
             icon: <Users className="w-10 h-10" />,
-            title: "Finding Your Fans",
+            title: "Finding Your Audience",
             description: "Advanced audience targeting and segmentation to connect with your ideal listeners. We analyze demographics, behaviors, and interests to ensure your message reaches the right ears.",
             stats: ["76% Audience Match", "2.8x Engagement", "18% Higher CTR"],
             color: "from-purple-500 to-violet-600",
@@ -54,15 +54,15 @@ export default function ServicesSection({
         },
         {
             icon: <AudioWaveform className="w-10 h-10" />,
-            title: "Making Awesome Audio",
-            description: "Professional audio production that captures attention and drives action. From compelling ad scripts to perfect sound design, we create memorable audio experiences that elevate your brand.",
+            title: "Impact Through Audio",
+            description: "Professional audio production that captures attention and drives action. From compelling ad scripts to killer talking points, we create memorable audio experiences that elevate your brand.",
             stats: ["85% Listen-Through", "4.2/5 Quality", "22% Brand Recall"],
             color: "from-blue-500 to-indigo-600",
         },
     ]
 
     return (
-        <section ref={servicesRef} className="py-20 md:py-32">
+        <section ref={servicesRef} id="services" className="py-20 md:py-32 bg-gradient-to-b from-[#010101] via-[#060e12] to-[#060e12]">
             <div className="container mx-auto px-4">
                 <motion.div
                     className="text-center mb-16"
@@ -81,11 +81,8 @@ export default function ServicesSection({
                             className="w-full"
                         />
                     </div>
-                    <p className="text-gray-300 max-w-2xl mx-auto">
-                        At Soundspire Media, we help startups, small businesses, and audio newbies make a splash in podcasting, streaming audio, radio, and more. We&apos;re here to make your brand&apos;s voice loud and clear, connect you with listeners who&apos;ll love you, and get you the most bang for your buck.
-                    </p>
-                    <p className="text-gray-300">
-                        We&apos;ll help you identify the perfect podcast audiences for your brand&apos;s message, ensuring your ads reach listeners who&apos;ll truly connect with your offering.
+                    <p className="text-gray-300 max-w-7xl mx-auto text-xl md:text-2xl">
+                        At Soundspire Media, we help startups, small businesses, and audio newbies make a splash in podcasting, streaming audio, radio, and more. We&apos;re here to make your brand&apos;s voice loud and clear, connect you with listeners who&apos;ll love you, and get you the most bang for your buck. We&apos;ll help you identify the perfect podcast audiences for your brand&apos;s message, ensuring your ads reach listeners who&apos;ll truly connect with your offering.
                     </p>
                 </motion.div>
 
@@ -109,22 +106,23 @@ export default function ServicesSection({
                                     >
                                         {service.icon}
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2 text-white">{service.title}</h3>
-                                    <p className="text-gray-300 mb-6">{service.description}</p>
-
+                                    <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">{service.title}</h3>
+                                    <p className="text-gray-300 mb-6 text-base md:text-lg">{service.description}</p>
+                                    {service.stats && (
                                     <div className="border-t border-[#FF3BFF]/50 pt-4">
-                                        <h4 className="text-sm font-semibold mb-3">Performance Metrics</h4>
+                                        <h4 className="text-sm md:text-base font-semibold mb-3">Performance Metrics</h4>
                                         <div className="flex flex-wrap gap-2">
                                             {service.stats.map((stat, i) => (
                                                 <div
                                                     key={i}
-                                                    className="text-xs text-white px-2 py-1 rounded-full border border-[#FF3BFF]/50"
+                                                    className="text-xs md:text-sm text-white px-2 py-1 rounded-full border border-[#FF3BFF]/50"
                                                 >
                                                     {stat}
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
+                                    )}
                                 </CardContent>
                             </Card>
                         </motion.div>

@@ -21,7 +21,10 @@ export default function PartnersSection({ partnersRef }: PartnersSectionProps) {
     { name: "Honey", logo: "/images/partners/Honey.svg" },
     { name: "LegalZoom", logo: "/images/partners/LegalZoom.svg" },
     { name: "Uber", logo: "/images/partners/Uber.svg" },
-    { name: "Carshield", logo: "/images/partners/CarShield.png" }
+    { name: "Carshield", logo: "/images/partners/CarShield.png" },
+    { name: "CI Financial", logo: "/images/partners/CIFinancial.svg" },
+    { name: "Etsy", logo: "/images/partners/Etsy.svg" },
+    { name: "Priceline", logo: "/images/partners/Priceline.svg" },
   ]
 
   return (
@@ -41,10 +44,10 @@ export default function PartnersSection({ partnersRef }: PartnersSectionProps) {
           <div className="inline-block rounded-full bg-indigo-900/30 border border-indigo-500/30 px-3 py-1 text-sm text-indigo-400 font-medium mb-4">
             Our Partners
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">
+          <h2 className="text-4xl md:text-6xl font-bold mb-5 leading-[1.2] bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-6xl mx-auto">
             We collaborate with the biggest names in technology and media to deliver exceptional results.
           </p>
         </motion.div>

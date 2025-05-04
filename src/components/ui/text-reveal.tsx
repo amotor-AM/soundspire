@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState, memo } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import React from "react"
 
 export const TextReveal = ({
   text,
@@ -109,7 +110,7 @@ export const TextReveal = ({
                   }
             }
             transition={{ duration: 0 }}
-            className="absolute bg-[#0d1113] z-20 will-change-transform"
+            className="absolute bg-transparent z-20 will-change-transform"
           >
             <p
               ref={textRef}
@@ -117,7 +118,7 @@ export const TextReveal = ({
                 textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
                 whiteSpace: "nowrap",
               }}
-              className="text-base sm:text-[3rem] py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 text-center"
+              className="text-2xl sm:text-4xl md:text-6xl py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 text-center"
             >
               {revealText}
             </p>
@@ -126,7 +127,7 @@ export const TextReveal = ({
           <motion.div
             animate={{
               left: isMouseOver 
-                ? `${Math.min(widthPercentage - 2, 98)}%`
+                ? `${Math.min(widthPercentage + 5, 105)}%`
                 : '-5%',
               rotate: `${rotateDeg}deg`,
               opacity: isMouseOver ? 1 : 0.5,
@@ -144,8 +145,12 @@ export const TextReveal = ({
 
           <div className="relative overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
             <p 
-              className="text-base sm:text-[3rem] py-10 font-bold bg-clip-text text-transparent bg-[#323238] text-center"
-              style={{ whiteSpace: "nowrap" }}
+              className="text-2xl sm:text-4xl md:text-6xl py-10 font-bold bg-clip-text text-transparent bg-[#323238] text-center"
+              style={{ 
+                whiteSpace: "nowrap",
+                opacity: isMouseOver ? Math.max(0, 1 - (widthPercentage / 100)) : 1,
+                transition: "opacity 0.1s ease"
+              }}
             >
               {text}
             </p>
@@ -160,22 +165,43 @@ export const TextReveal = ({
 }
 
 const Stars = () => {
-  const randomMove = () => Math.random() * 15 - 7.5
-  const randomOpacity = () => Math.random() * 0.7 + 0.3
-  const random = () => Math.random()
-
-  const stars = Array.from({ length: 140 }, (_, i) => {
-    const row = Math.floor(i / 12)
-    const col = i % 12
+  const [stars, setStars] = React.useState<Array<{
+    initialX: number;
+    initialY: number;
+    duration: number;
+    delay: number;
+    size: number;
+  }>>([]);
+  const initialized = React.useRef(false);
+  
+  React.useEffect(() => {
+    if (initialized.current) return;
+    initialized.current = true;
     
-    return {
-      initialX: (col / 12) * 100 + (random() * 8 - 4),
-      initialY: (row / 12) * 100 + (random() * 8 - 4),
-      duration: random() * 5 + 15,
-      delay: random() * -10,
-      size: random() * 1.5 + 1
-    }
-  })
+    const random = () => Math.random();
+
+    const newStars = Array.from({ length: 140 }, (_, i) => {
+      const row = Math.floor(i / 12);
+      const col = i % 12;
+      
+      return {
+        initialX: (col / 12) * 100 + (random() * 8 - 4),
+        initialY: (row / 12) * 100 + (random() * 8 - 4),
+        duration: random() * 5 + 15,
+        delay: random() * -10,
+        size: random() * 1.5 + 1
+      };
+    });
+    
+    setStars(newStars);
+  }, []);
+
+  if (stars.length === 0) {
+    return <div className="absolute inset-0"></div>;
+  }
+
+  const randomMove = () => Math.random() * 15 - 7.5;
+  const randomOpacity = () => Math.random() * 0.7 + 0.3;
 
   return (
     <div className="absolute inset-0">
@@ -218,7 +244,7 @@ const Stars = () => {
         ></motion.span>
       ))}
     </div>
-  )
-}
+  );
+};
 
-const MemoizedStars = memo(Stars)
+const MemoizedStars = React.memo(Stars);

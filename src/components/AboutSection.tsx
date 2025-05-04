@@ -37,7 +37,7 @@ export const PinContainer = ({
 
   return (
     <div
-      className={cn("relative group/pin z-50 cursor-pointer", containerClassName)}
+      className={cn("relative group/pin cursor-pointer", containerClassName)}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onClick={() => href && window.open(href, "_blank")}
@@ -53,7 +53,7 @@ export const PinContainer = ({
           style={{
             transform: transform,
           }}
-          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
+          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
         >
           <div className={cn("relative z-50", className)}>{children}</div>
         </div>
@@ -187,20 +187,20 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
   const founders = [
     {
       name: "Kristen Valentine",
-      role: "Co Founder & Audio Ad Expert",
+      role: "Founder & Audio Ad Expert",
       image: "/images/Kristen.jpeg",
       linkedin: "https://www.linkedin.com/in/kristen-valentine-coseo-6675132a/",
     },
     {
       name: "Ally Kandel",
-      role: "Co Founder & Podcast Expert",
+      role: "Founder & Audio Ad Expert",
       image: "/images/Ally.jpeg",
       linkedin: "https://www.linkedin.com/in/alisonkandel/",
     },
   ]
 
   return (
-    <section ref={aboutRef} className="py-20 md:py-32">
+    <section ref={aboutRef} id="about" className="py-20 md:py-32">
       <div className="container mx-auto px-4 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.05),transparent_60%)]">
         <motion.div
           className="text-center mb-10"
@@ -212,12 +212,12 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
           <div className="inline-block rounded-full bg-indigo-900/30 border border-indigo-500/30 px-3 py-1 text-sm text-indigo-400 font-medium mb-4">
             About Us
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] from-25% via-[#C651F2] from-40%to-[#8C39E0]">
-            Sound Different. Stand Out.
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] from-25% via-[#C651F2] from-40%to-[#8C39E0]">
+            The Future Of Smarter Audio
           </h2>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto mb-16">
+        <div className="max-w-7xl mx-auto mb-16">
           <motion.div
             className="text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -225,7 +225,7 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
               We&apos;re two audio nerds who ditched the boring agency life to help brands like yours shine in the audio
               world. We are wizards at crafting audio strategies that click, and pro&apos;s at getting your ads in front of
               the right ears.

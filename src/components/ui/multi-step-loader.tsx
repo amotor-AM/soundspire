@@ -61,12 +61,12 @@ const LoaderCore = ({
             transition={{ duration: 0.5 }}
           >
             <div>
-              {index > value && <CheckIcon className="text-cyan-400 dark:text-cyan-400" />}
+              {index > value && <CheckIcon className="text-indigo-400 dark:text-indigo-400" />}
               {index <= value && (
                 <CheckFilled
                   className={cn(
-                    "text-cyan-400 dark:text-cyan-400",
-                    value === index && "text-cyan-500 dark:text-cyan-500 opacity-100",
+                    "text-indigo-400 dark:text-indigo-400",
+                    value === index && "text-indigo-500 dark:text-indigo-500 opacity-100",
                   )}
                 />
               )}
@@ -74,7 +74,7 @@ const LoaderCore = ({
             <span
               className={cn(
                 "text-white dark:text-white",
-                value === index && "text-cyan-400 dark:text-cyan-400 opacity-100",
+                value === index && "text-indigo-400 dark:text-indigo-400 opacity-100",
               )}
             >
               {loadingState.text}
@@ -90,7 +90,7 @@ export const MultiStepLoader = ({
   loadingStates,
   loading,
   duration = 2000,
-  loop = true,
+  loop = false,
   onComplete,
 }: {
   loadingStates: LoadingState[]
@@ -106,26 +106,22 @@ export const MultiStepLoader = ({
       setCurrentState(0)
       return
     }
+    
     const timeout = setTimeout(() => {
-      if (currentState === loadingStates.length - 1 && !loop) {
-        // If we're at the last state and not looping, call onComplete
+      if (currentState === loadingStates.length - 1) {
+        // If we're at the last state
         if (onComplete) {
           onComplete()
         }
         return
       }
 
-      setCurrentState((prevState) =>
-        loop
-          ? prevState === loadingStates.length - 1
-            ? 0
-            : prevState + 1
-          : Math.min(prevState + 1, loadingStates.length - 1),
-      )
+      // Always increment to the next state until we reach the end
+      setCurrentState((prevState) => Math.min(prevState + 1, loadingStates.length - 1))
     }, duration)
 
     return () => clearTimeout(timeout)
-  }, [currentState, loading, loop, loadingStates.length, duration, onComplete])
+  }, [currentState, loading, loadingStates.length, duration, onComplete, loop])
 
   return (
     <AnimatePresence mode="wait">

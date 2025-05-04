@@ -28,8 +28,9 @@ import Footer from "@/components/Footer";
 const navItems = [
   { name: "Home", link: "#hero" },
   { name: "Services", link: "#services" },
-  { name: "Work", link: "#portfolio" },
-  { name: "Partners", link: "#partners" }
+  { name: "About", link: "#about" },
+  { name: "Partners", link: "#partners" },
+  { name: "Contact", link: "#contact" }
 ];
 
 export default function Home() {
@@ -136,30 +137,67 @@ export default function Home() {
 
   // Handle form submission
   const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
     
     try {
-      // Your form submission logic here
+      // Send form data to API route
+      // const response = await fetch('/api/contact', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
       
-      // Show success message after loader completes
+      // const data = await response.json();
+      
+      // if (!response.ok) {
+      //   throw new Error(data.error || 'Failed to send message');
+      // }
+      
+      // Reset form on success
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      
+      // Keep loader visible for enough time to show all steps
+      // Each step takes 'duration' ms, so we need at least loadingStates.length * duration
+      const totalDuration = loadingStates.length * 2000; // 2000ms per step
+      
       setTimeout(() => {
-        setIsLoading(false)
-        setShowSuccess(true)
-        
-        // Auto-close success message after 5 seconds
-        setTimeout(() => {
-          setShowSuccess(false)
-        }, 5000)
-      }, 2000) // Loader duration
+        setIsLoading(false);
+        setShowSuccess(true);
+      }, totalDuration);
+      
     } catch (error) {
-      console.error(error)
-      setIsLoading(false)
+      console.error('Error:', error);
+      setIsLoading(false);
+      // You could add error handling UI here
+      alert('Failed to send message. Please try again later.');
     }
-  }
+  };
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView();
+      }
+    }
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = '';
+    };
+  }, []);
 
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden max-w-[100vw]">
       {/* Base background layers */}
       <div className="fixed inset-0 bg-black/90" />
       <motion.div

@@ -108,10 +108,10 @@ export default function ContactSection({
           <div className="inline-block rounded-full bg-indigo-900/30 border border-indigo-500/30 px-3 py-1 text-sm text-indigo-400 font-medium mb-4">
             Get In Touch
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">
+          <h2 className="text-4xl md:text-6xl font-bold mb-5 leading-[1.2] bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">
             Ready to Amplify Your Brand?
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl mb-4 text-gray-300 max-w-6xl mx-auto">
             Let&apos;s discuss how we can help you achieve your advertising goals with our cutting-edge approach.
           </p>
         </motion.div>
@@ -124,12 +124,12 @@ export default function ContactSection({
             viewport={{ once: true, margin: "-100px" }}
           >
             <div className="bg-black/50 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-indigo-300/10 hover:border-indigo-300/40">
-              <h3 className="text-2xl font-bold mb-6 text-white">Send Us a Message</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">Send Us a Message</h3>
 
               <form className="space-y-4" onSubmit={onSubmit} noValidate>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm text-gray-300">
+                    <label htmlFor="name" className="text-lg text-gray-300">
                       Name <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -148,7 +148,7 @@ export default function ContactSection({
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm text-gray-300">
+                    <label htmlFor="email" className="text-lg text-gray-300">
                       Email <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -169,7 +169,7 @@ export default function ContactSection({
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm text-gray-300">
+                  <label htmlFor="subject" className="text-lg text-gray-300">
                     Subject <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -189,7 +189,7 @@ export default function ContactSection({
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm text-gray-300">
+                  <label htmlFor="message" className="text-lg text-gray-300">
                     Message <span className="text-red-500">*</span>
                   </label>
                   <textarea
@@ -244,16 +244,16 @@ export default function ContactSection({
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">Contact Information</h3>
               <div className="space-y-6">
                 <motion.div className="flex items-start gap-4" whileHover={{ x: 5 }}>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF3BFF] to-[#8C39E0] flex items-center justify-center flex-shrink-0 text-white">
                     <MessageSquare className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white">Email</h4>
-                    <p className="text-gray-300">ally.kandel@soundspiremedia.com</p>
-                    <p className="text-gray-300">kristen.valentine@soundspiremedia.com</p>
+                    <h4 className="text-lg md:text-xl font-medium text-white">Email</h4>
+                    <p className="text-gray-300 text-lg">ally.kandel@soundspiremedia.com</p>
+                    <p className="text-gray-300 text-lg">kristen.valentine@soundspiremedia.com</p>
                   </div>
                 </motion.div>
 
@@ -262,16 +262,16 @@ export default function ContactSection({
                     <Headphones className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white">Office Hours</h4>
-                    <p className="text-gray-300">By appointment only</p>
+                    <h4 className="text-lg md:text-xl font-medium text-white">Office Hours</h4>
+                    <p className="text-gray-300 text-lg">By appointment only</p>
                   </div>
                 </motion.div>
               </div>
             </div>
 
             <div className="bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% p-8 rounded-xl text-white">
-              <h3 className="text-xl font-bold mb-4">Ready to get started?</h3>
-              <p className="mb-6">
+              <h3 className="text-2xl font-bold mb-4">Ready to get started?</h3>
+              <p className="mb-6 text-lg">
                 Schedule a free 30-minute strategy call with our team to discuss your advertising goals.
               </p>
               <Button

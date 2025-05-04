@@ -10,7 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --animate-scroll: scroll var(--animation-duration, 37.5s) var(--animation-direction, forwards) linear infinite;
+  --animate-scroll: scroll var(--animation-duration, 78s) var(--animation-direction, forwards) linear infinite;
  
   @keyframes scroll {
     from {

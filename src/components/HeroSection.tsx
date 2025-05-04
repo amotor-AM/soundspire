@@ -58,12 +58,12 @@ export default function HeroSection({
               </motion.h1>
 
               <motion.p
-                className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12"
+                className="text-xl md:text-3xl text-gray-300 max-w-4xl mx-auto mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                We engineer cutting-edge advertising campaigns that leverage the latest in social media and podcast
+                We engineer cutting-edge advertising campaigns that leverage the latest in podcast and digital audio
                 technology to deliver measurable, impactful results.
               </motion.p>
 
@@ -98,17 +98,17 @@ export default function HeroSection({
                   </Button>
                 </motion.div>
                 <motion.div
-                  onMouseEnter={() => handleCursorEnter("button", "Our Work")}
+                  onMouseEnter={() => handleCursorEnter("button", "About Us")}
                   onMouseLeave={handleCursorLeave}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <Button
-                    onClick={() => scrollToSection("portfolio")}
+                    onClick={() => scrollToSection("about")}
                     variant="outline"
                     className="border-[#8C39E0] text-white hover:bg-[#8C39E0]/50 px-8 py-6 text-lg w-full sm:w-auto"
                   >
-                    Our Work
+                    About Us
                   </Button> 
                 </motion.div>
               </motion.div>

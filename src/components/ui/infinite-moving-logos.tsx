@@ -28,11 +28,11 @@ export const InfiniteMovingLogos = ({
   const animationDuration = useMemo(() => {
     switch (speed) {
       case "fast":
-        return "360s"  // 6 minutes
+        return "60s"  
       case "slow":
-        return "720s"  // 12 minutes
+        return "240s"  
       default:
-        return "480s"  // 8 minutes
+        return "140s"  
     }
   }, [speed])
 

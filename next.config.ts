@@ -7,10 +7,10 @@ const nextConfig: NextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
-  compress: true,
   experimental: {
     optimizeCss: false,
   },
+  serverComponentsExternalPackages: ['sharp'],
   headers: async () => {
     return [
       {

@@ -212,7 +212,7 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
           <div className="inline-block rounded-full bg-indigo-900/30 border border-indigo-500/30 px-3 py-1 text-sm text-indigo-400 font-medium mb-4">
             About Us
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] from-25% via-[#C651F2] from-40%to-[#8C39E0]">
+          <h2 className="text-4xl md:text-6xl font-bold mb-5 leading-[1.2] bg-clip-text text-transparent bg-gradient-to-r from-[#FF3BFF] via-[#C651F2] to-[#8C39E0]">
             The Future Of Smarter Audio
           </h2>
         </motion.div>

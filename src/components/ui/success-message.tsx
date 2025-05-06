@@ -78,7 +78,7 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({ onClose }) => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
           <Button
             onClick={onClose}
-            className="bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#8C39E0] hover:to-[#FF3BFF] text-white px-8 border-0"
+            className="bg-[#8C39E0] bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#8C39E0] hover:to-[#FF3BFF] text-white px-8 border-0"
           >
             Back to Website
           </Button>

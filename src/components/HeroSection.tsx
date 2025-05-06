@@ -81,7 +81,7 @@ export default function HeroSection({
                 >
                   <Button
                     onClick={() => scrollToSection("contact")}
-                    className="bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white px-8 py-6 text-lg w-full sm:w-auto border-0 relative overflow-hidden group"
+                    className="bg-[#8C39E0] bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white px-8 py-6 text-lg w-full sm:w-auto border-0 relative overflow-hidden group"
                   >
                     <span className="relative z-10">Get Started</span>
                     <motion.div
@@ -106,7 +106,7 @@ export default function HeroSection({
                   <Button
                     onClick={() => scrollToSection("about")}
                     variant="outline"
-                    className="border-[#8C39E0] text-white hover:bg-[#8C39E0]/50 px-8 py-6 text-lg w-full sm:w-auto"
+                    className="bg-transparent border-[#8C39E0] text-white hover:bg-[#8C39E0]/50 px-8 py-6 text-lg w-full sm:w-auto"
                   >
                     About Us
                   </Button> 

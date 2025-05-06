@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { motion } from "framer-motion"
-import InfiniteMovingLogos from "@/components/ui/infinite-moving-logos"
+import dynamic from 'next/dynamic'
 
 interface PartnersItem {
   name: string
@@ -12,6 +12,12 @@ interface PartnersItem {
 interface PartnersSectionProps {
   partnersRef: React.RefObject<HTMLElement | null>
 }
+
+// Dynamically import the InfiniteMovingLogos component
+const InfiniteMovingLogos = dynamic(() => import("@/components/ui/infinite-moving-logos"), {
+  ssr: false,
+  loading: () => <div className="h-24 w-full animate-pulse bg-gray-800/20 rounded-lg" />
+})
 
 export default function PartnersSection({ partnersRef }: PartnersSectionProps) {
   const topRowPartners: PartnersItem[] = [
@@ -59,7 +65,41 @@ export default function PartnersSection({ partnersRef }: PartnersSectionProps) {
           viewport={{ once: true, margin: "-100px" }}
           className="w-full"
         >
-          <InfiniteMovingLogos items={topRowPartners} direction="left" speed="slow" />
+          {/* Static Grid */}
+          {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16">
+            {topRowPartners.map((partner, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="flex items-center justify-center"
+              >
+                <Image
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  width={200}
+                  height={100}
+                  className="max-w-[200px] h-auto grayscale hover:grayscale-0 transition-all duration-300"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                  quality={85}
+                  priority={index < 4}
+                />
+              </motion.div>
+            ))}
+          </div> */}
+
+          {/* Infinite Moving Logos */}
+          <div className="relative">
+            <InfiniteMovingLogos
+              items={topRowPartners}
+              direction="left"
+              speed="slow"
+              className="py-8"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

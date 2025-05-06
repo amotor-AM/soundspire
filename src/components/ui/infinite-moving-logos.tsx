@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import React, { useEffect, useState, useCallback } from "react"
+import React, { useEffect, useState, useCallback, useMemo } from "react"
 import Image from "next/image"
 
 export const InfiniteMovingLogos = ({
@@ -24,27 +24,39 @@ export const InfiniteMovingLogos = ({
   const scrollerRef = React.useRef<HTMLUListElement>(null)
   const [start, setStart] = useState(false)
 
+  // Memoize the animation duration based on speed
+  const animationDuration = useMemo(() => {
+    switch (speed) {
+      case "fast":
+        return "360s"  // 6 minutes
+      case "slow":
+        return "720s"  // 12 minutes
+      default:
+        return "480s"  // 8 minutes
+    }
+  }, [speed])
+
+  // Memoize the animation direction
+  const animationDirection = useMemo(() => {
+    return direction === "left" ? "forwards" : "reverse"
+  }, [direction])
+
+  // Memoize the duplicated items to prevent unnecessary re-renders
+  const duplicatedItems = useMemo(() => {
+    return [...items, ...items]
+  }, [items])
+
   const getDirection = useCallback(() => {
     if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty("--animation-direction", "forwards")
-      } else {
-        containerRef.current.style.setProperty("--animation-direction", "reverse")
-      }
+      containerRef.current.style.setProperty("--animation-direction", animationDirection)
     }
-  }, [direction])
+  }, [animationDirection])
 
   const getSpeed = useCallback(() => {
     if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "25s")
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "37.5s")
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "65s")
-      }
+      containerRef.current.style.setProperty("--animation-duration", animationDuration)
     }
-  }, [speed])
+  }, [animationDuration])
 
   useEffect(() => {
     function addAnimation() {
@@ -81,8 +93,14 @@ export const InfiniteMovingLogos = ({
           "flex w-max min-w-full shrink-0 flex-nowrap gap-24 py-4",
           start && "animate-scroll"
         )}
+        style={{
+          animationDuration: animationDuration,
+          animationDirection: animationDirection as "normal" | "reverse",
+          animationTimingFunction: "linear",
+          animationIterationCount: "infinite",
+        }}
       >
-        {items.map((item, idx) => (
+        {duplicatedItems.map((item, idx) => (
           <li
             className="relative flex h-20 shrink-0 items-center justify-center transition-all hover:scale-105"
             key={`${item.name}-${idx}`}
@@ -94,6 +112,8 @@ export const InfiniteMovingLogos = ({
                 fill
                 className="object-contain transition-all brightness-0 invert"
                 sizes="(max-width: 768px) 100vw, 200px"
+                quality={85}
+                priority={idx < 4}
               />
             </div>
           </li>

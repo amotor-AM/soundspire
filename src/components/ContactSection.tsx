@@ -5,7 +5,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Headphones, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {GradientSection} from "@/components/ui/gradient-section"
+import { GradientSection } from "@/components/ui/gradient-section"
 
 interface ContactFormData {
   name: string
@@ -91,7 +91,7 @@ export default function ContactSection({
   }
 
   return (
-    <GradientSection 
+    <GradientSection
       className="py-20 md:py-32"
       gradientClassName="bg-gradient-to-b from-transparent via-black/10 to-blue-950/20"
       ref={contactRef}
@@ -139,9 +139,8 @@ export default function ContactSection({
                       value={formData.name}
                       onChange={handleInputChange}
                       onBlur={(e) => validateField("name", e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${
-                        errors.name ? "border-red-500" : "border-indigo-500/30"
-                      } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
+                      className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${errors.name ? "border-red-500" : "border-indigo-500/30"
+                        } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
                       placeholder="Your name"
                       required
                     />
@@ -158,9 +157,8 @@ export default function ContactSection({
                       value={formData.email}
                       onChange={handleInputChange}
                       onBlur={(e) => validateField("email", e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${
-                        errors.email ? "border-red-500" : "border-indigo-500/30"
-                      } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
+                      className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${errors.email ? "border-red-500" : "border-indigo-500/30"
+                        } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
                       placeholder="Your email"
                       required
                     />
@@ -179,9 +177,8 @@ export default function ContactSection({
                     value={formData.subject}
                     onChange={handleInputChange}
                     onBlur={(e) => validateField("subject", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${
-                      errors.subject ? "border-red-500" : "border-indigo-500/30"
-                    } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
+                    className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${errors.subject ? "border-red-500" : "border-indigo-500/30"
+                      } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
                     placeholder="Subject"
                     required
                   />
@@ -199,9 +196,8 @@ export default function ContactSection({
                     value={formData.message}
                     onChange={handleInputChange}
                     onBlur={(e) => validateField("message", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${
-                      errors.message ? "border-red-500" : "border-indigo-500/30"
-                    } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
+                    className={`w-full px-4 py-3 rounded-lg bg-indigo-950/30 border ${errors.message ? "border-red-500" : "border-indigo-500/30"
+                      } text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500`}
                     placeholder="Your message"
                     required
                   />
@@ -216,7 +212,7 @@ export default function ContactSection({
                 >
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white border-0 relative overflow-hidden group"
+                    className="w-full bg-[#8C39E0] bg-gradient-to-r from-[#FF3BFF] from-10% via-[#C651F2] via-30% to-[#8C39E0] to-90% hover:from-[#FF3BFF] hover:to-[#8C39E0] text-white border-0 relative overflow-hidden group"
                   >
                     <span className="relative z-10">Send Message</span>
                     <motion.div
@@ -274,14 +270,27 @@ export default function ContactSection({
               <p className="mb-6 text-lg">
                 Schedule a free 30-minute strategy call with our team to discuss your advertising goals.
               </p>
-              <Button
-                variant="outline"
-                className="border-white text-white hover:bg-white/20 w-full"
-                onMouseEnter={() => handleCursorEnter("button", "Book a Call")}
-                onMouseLeave={handleCursorLeave}
-              >
-                Book a Strategy Call
-              </Button>
+              <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onMouseEnter={() => handleCursorEnter("button", "Book a Call")}
+                  onMouseLeave={handleCursorLeave}
+                  onClick={() => {
+                    const emailAddresses = "ally.kandel@soundspiremedia.com,kristen.valentine@soundspiremedia.com";
+                    const subject = "Strategy Call Request";
+                    const body = "Hi Ally and Kristen,\n\nI'm interested in scheduling a strategy call to discuss my advertising goals.\n\nBest regards,";
+                    const mailtoLink = `mailto:${emailAddresses}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.open(mailtoLink);
+                  }}
+                >
+                  <Button
+                    variant="outline"
+                  className="bg-transparent border-white text-white hover:bg-white/20 w-full"
+                  >
+                    <span className="relative z-10">Book A Strategy Call</span>
+    
+                  </Button>
+                </motion.div>
             </div>
           </motion.div>
         </div>

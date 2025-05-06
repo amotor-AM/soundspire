@@ -7,6 +7,15 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   compress: true,
+  webpack: (config, { isServer }) => {
+    // Disable critters
+    if (config.optimization && config.optimization.minimizer) {
+      config.optimization.minimizer = config.optimization.minimizer.filter(
+        (minimizer) => !minimizer.constructor.name.includes('Critters')
+      );
+    }
+    return config;
+  },
   headers: async () => {
     return [
       {

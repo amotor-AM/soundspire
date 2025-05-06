@@ -1,11 +1,19 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next",
+      "use": "@vercel/static-build",
       "config": {
-        "installCommand": "yarn add critters && yarn install"
+        "distDir": "out",
+        "buildCommand": "yarn add critters && yarn install && npm run export"
       }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 } 

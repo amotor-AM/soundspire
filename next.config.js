@@ -11,19 +11,16 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
     optimizePackageImports: ['framer-motion', '@tabler/icons-react'],
-    serverActions: true,
-    serverComponentsExternalPackages: ['sharp'],
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'INP', 'TTFB'],
   },
-  serverExternalPackages: ['critters'],
+  serverExternalPackages: ['sharp'],
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   compress: true,
   headers: async () => {
     return [

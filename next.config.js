@@ -7,6 +7,10 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   compress: true,
+  experimental: {
+    // Disable all experimental features
+    optimizeCss: false,
+  },
   headers: async () => {
     return [
       {

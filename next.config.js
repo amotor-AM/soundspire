@@ -11,9 +11,7 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   experimental: {
-    optimizeCss: false,
     optimizePackageImports: ['framer-motion', '@tabler/icons-react'],
-    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'INP', 'TTFB'],
   },
   serverExternalPackages: ['sharp'],
   compiler: {

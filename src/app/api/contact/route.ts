@@ -205,8 +205,6 @@ export async function POST(req: Request) {
 
         return NextResponse.json({ success: true, result: data }, { status: 200 });
     } catch (err) {
-        console.error('Error in contact API:', err);
-        
-        return NextResponse.json({ success: false, message: 'Failed to process request' }, { status: 500 });
+        return NextResponse.json({ success: false, message: `Failed to process request: ${err}` }, { status: 500 });
     }
 }

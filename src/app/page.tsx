@@ -11,7 +11,7 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { motion, useMotionTemplate, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useMotionTemplate, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import FuturisticCursor from "@/components/ui/futuristic-cursor"
 import { useMobile } from "@/hooks/use-moble"
 import { MultiStepLoader } from "@/components/ui/multi-step-loader"
@@ -154,10 +154,9 @@ export default function Home() {
       }, totalDuration);
       
     } catch (error) {
-      console.error('Error:', error);
       setIsLoading(false);
       // You could add error handling UI here
-      alert('Failed to send message. Please try again later.');
+      alert(`Failed to send message. Please try again later. ${error}`);
     }
   };
 

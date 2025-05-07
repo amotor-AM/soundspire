@@ -31,7 +31,7 @@ export const InfiniteMovingLogos = ({
         return "60s"  
       case "slow":
         return "240s"  
-      default:
+       default:
         return "140s"  
     }
   }, [speed])

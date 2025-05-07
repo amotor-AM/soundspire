@@ -22,6 +22,7 @@ interface ExpertiseSectionProps {
     handleCursorEnter: (variant: string, text?: string) => void
     handleCursorLeave: () => void
     scrollToSection: (sectionId: string) => void
+    DOMLoaded: boolean
 }
 
 export default function ServicesSection({
@@ -29,6 +30,7 @@ export default function ServicesSection({
     handleCursorEnter,
     handleCursorLeave,
     scrollToSection,
+    DOMLoaded
 }: ExpertiseSectionProps) {
     // Services data
     const services: ServiceItem[] = [
@@ -94,11 +96,15 @@ export default function ServicesSection({
                     </div>
                     {!isMobile && (
                         <div className="p-3 flex justify-center w-full">
-                            <TextReveal
-                                text="You Know Your Business"
-                                revealText="We Know How To Market It"
-                                className="w-full"
-                            />
+                            {
+                                DOMLoaded && (
+                                    <TextReveal
+                                        text="You Know Your Business"
+                                        revealText="We Know How To Market It"
+                                        className="w-full"
+                                    />
+                                )
+                            }
                         </div>
                     )}
                     {isMobile && (
@@ -136,7 +142,7 @@ export default function ServicesSection({
                                     >
                                         {service.icon}
                                     </div>
-                                    <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">{service.title}</h3>
+                                    <h2 className="text-xl md:text-2xl font-bold mb-2 text-white">{service.title}</h2>
                                     <p className="text-gray-300 mb-6 text-base md:text-lg">{service.description}</p>
                                     {service.stats && (
                                         <div className="border-t border-[#FF3BFF]/50 pt-4">

@@ -38,6 +38,7 @@ export default function Home() {
   // const [activeSection, setActiveSection] = useState("hero")
   const [cursorVariant, setCursorVariant] = useState("default")
   const [cursorText, setCursorText] = useState("")
+  const [DOMLoaded, setDOMLoaded] = useState(false)
   const isMobile = useMobile()
   // const [visible, setVisible] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
@@ -75,37 +76,18 @@ export default function Home() {
     { text: "Delicately placing your email at the top of our inbox..." }
   ]
 
-  // Update active section based on scroll position
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY + 100
-  //     const sections = ["hero", "services", "about", "partners", "contact"] // Changed "portfolio" to "about"
-
-  //     for (const section of sections) {
-  //       const element = document.getElementById(section)
-  //       if (element) {
-  //         if (scrollPosition >= element.offsetTop && scrollPosition < element.offsetTop + element.offsetHeight) {
-  //           setActiveSection(section)
-  //           break
-  //         }
-  //       }
-  //     }
-  //   }
-
-  //   window.addEventListener("scroll", handleScroll)
-  //   return () => window.removeEventListener("scroll", handleScroll)
-  // }, [])
-
-  // Mouse move handler for interactive elements
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX)
       mouseY.set(e.clientY)
     }
-
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [mouseX, mouseY])
+
+  useEffect(() => {
+    setDOMLoaded(true)
+  }, [])
 
   // Cursor handlers
   const handleCursorEnter = (variant: string, text = "") => {
@@ -152,9 +134,9 @@ export default function Home() {
       
       const data = await response.json();
       
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message');
-      }
+      // if (!response.ok) {
+      //   throw new Error(data.error || 'Failed to send message');
+      // }
       
       // Reset form on success
       setFormData({
@@ -273,6 +255,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="absolute top-0 left-0 w-full max-w-[100vw] overflow-x-hidden">
         <HeroSection
+          DOMLoaded={DOMLoaded}
           scrollToSection={scrollToSection}
           heroRef={heroRef}
           handleCursorEnter={handleCursorEnter}
@@ -283,16 +266,21 @@ export default function Home() {
         <div className="h-screen" />
         <div className="w-full bg-[#060e12]">
           <ServicesSection
+            DOMLoaded={DOMLoaded}
             servicesRef={servicesRef}
             handleCursorEnter={handleCursorEnter}
             handleCursorLeave={handleCursorLeave}
             scrollToSection={scrollToSection}
           />
-          <AboutSection aboutRef={aboutRef} handleCursorEnter={handleCursorEnter} handleCursorLeave={handleCursorLeave} />
+          <AboutSection 
+            aboutRef={aboutRef} 
+            handleCursorEnter={handleCursorEnter} 
+            handleCursorLeave={handleCursorLeave}
+          />
 
           {/* <TestimonialsSection handleCursorEnter={handleCursorEnter} handleCursorLeave={handleCursorLeave} /> */}
 
-          <PartnersSection partnersRef={partnersRef} />
+          <PartnersSection partnersRef={partnersRef} DOMLoaded={DOMLoaded} />
 
           <ContactSection
             contactRef={contactRef}

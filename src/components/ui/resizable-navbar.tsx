@@ -232,7 +232,14 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => {
   return (
     <Link href="/" className="flex mb-4">
-      <Image src="/images/logo.png" alt="Soundspire Logo" width={120} height={50} />
+      <Image 
+        src="/images/logo.png" 
+        alt="Soundspire Logo" 
+        width={80} 
+        height={50} 
+        priority
+        quality={90}
+      />
     </Link>
   );
 };
@@ -276,23 +283,12 @@ export const NavbarButton = ({
 
   return (
     <Tag
-      href={href || undefined}
+      href={href || '#contact'}
+      className={cn(baseStyles, variantStyles[variant], className)}
       onClick={handleClick}
-      className={cn(baseStyles, variantStyles[variant], className, "rounded-md")}
       {...props}
     >
-      <span className="relative z-10 rounded-md">{children}</span>
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-[#8C39E0] to-[#FF3BFF] opacity-0 group-hover:opacity-100 rounded-md"
-        animate={{
-          background: [
-            "linear-gradient(90deg, #8C39E0 0%, #FF3BFF 100%)",
-            "linear-gradient(90deg, #FF3BFF 0%, #8C39E0 100%)",
-            "linear-gradient(90deg, #8C39E0 0%, #FF3BFF 100%)",
-          ],
-        }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-      />
+      {children}
     </Tag>
   );
 };

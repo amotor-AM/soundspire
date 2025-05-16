@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Soundspire Media",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/og-image.svg",
         width: 1200,
         height: 630,
         alt: "Soundspire Media - Next-Gen Audio Advertising",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Soundspire Media | Next-Gen Audio Advertising Agency",
     description: "Cutting-edge podcast and digital audio advertising agency. We help brands amplify their presence through strategic media buying, audience targeting, and professional audio production.",
-    images: ["/images/og-image.jpg"],
+    images: ["/images/og-image.svg"],
   },
   robots: {
     index: true,
@@ -108,7 +108,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" href="/images/logo.png" as="image" />
-        <link rel="preload" href="/images/og-image.jpg" as="image" />
+        <link rel="preload" href="/images/og-image.svg" as="image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

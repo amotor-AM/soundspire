@@ -3,7 +3,8 @@
 import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Headphones, MessageSquare } from "lucide-react"
+// import { Headphones, MessageSquare } from "lucide-react"
+import { Headphones } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GradientSection } from "@/components/ui/gradient-section"
 
@@ -242,7 +243,7 @@ export default function ContactSection({
             <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">Contact Information</h3>
               <div className="space-y-6">
-                <motion.div className="flex items-start gap-4" whileHover={{ x: 5 }}>
+                {/* <motion.div className="flex items-start gap-4" whileHover={{ x: 5 }}>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF3BFF] to-[#8C39E0] flex items-center justify-center flex-shrink-0 text-white">
                     <MessageSquare className="w-5 h-5" />
                   </div>
@@ -251,7 +252,7 @@ export default function ContactSection({
                     <p className="text-gray-300 text-lg">ally.kandel@soundspiremedia.com</p>
                     <p className="text-gray-300 text-lg">kristen.valentine@soundspiremedia.com</p>
                   </div>
-                </motion.div>
+                </motion.div> */}
 
                 <motion.div className="flex items-start gap-4" whileHover={{ x: 5 }}>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF3BFF] to-[#8C39E0] flex items-center justify-center flex-shrink-0 text-white">

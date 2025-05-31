@@ -1,9 +1,11 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import Image from "next/image"
+// import { useState, useRef } from "react"
+import { useState } from "react"
+// import { motion, useInView } from "framer-motion"
+import { motion } from "framer-motion"
+// import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 interface AboutSectionProps {
@@ -140,64 +142,64 @@ export const PinPerspective = ({
 }
 
 // Founder Avatar component with 3D Pin
-const FounderAvatar = ({
-  image,
-  name,
-  role,
-  linkedin,
-}: {
-  image: string
-  name: string
-  role: string
-  linkedin: string
-}) => {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true })
+// const FounderAvatar = ({
+//   image,
+//   name,
+//   role,
+//   linkedin,
+// }: {
+//   image: string
+//   name: string
+//   role: string
+//   linkedin: string
+// }) => {
+//   const ref = useRef<HTMLDivElement>(null)
+//   const isInView = useInView(ref, { once: true })
 
-  return (
-    <motion.div
-      ref={ref}
-      className="flex flex-col items-center"
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="relative h-48 w-48 mb-4">
-        <PinContainer
-          title={`Connect with ${name}`}
-          href={linkedin}
-          containerClassName="w-48 h-48"
-        >
-          <div className="flex items-center justify-center w-32 h-32">
-            <div className="relative w-full h-full rounded-full overflow-hidden">
-              <Image src={image || "/placeholder.svg"} alt={name} fill className="object-cover" sizes="128px" />
-            </div>
-          </div>
-        </PinContainer>
-      </div>
+//   return (
+//     <motion.div
+//       ref={ref}
+//       className="flex flex-col items-center"
+//       initial={{ opacity: 0, y: 20 }}
+//       animate={isInView ? { opacity: 1, y: 0 } : {}}
+//       transition={{ duration: 0.5 }}
+//     >
+//       <div className="relative h-48 w-48 mb-4">
+//         <PinContainer
+//           title={`Connect with ${name}`}
+//           href={linkedin}
+//           containerClassName="w-48 h-48"
+//         >
+//           <div className="flex items-center justify-center w-32 h-32">
+//             <div className="relative w-full h-full rounded-full overflow-hidden">
+//               <Image src={image || "/placeholder.svg"} alt={name} fill className="object-cover" sizes="128px" />
+//             </div>
+//           </div>
+//         </PinContainer>
+//       </div>
 
-      <h3 className="text-lg font-bold text-white">{name}</h3>
-      <p className="text-sm text-[#FF3BFF]">{role}</p>
-    </motion.div>
-  )
-}
+//       <h3 className="text-lg font-bold text-white">{name}</h3>
+//       <p className="text-sm text-[#FF3BFF]">{role}</p>
+//     </motion.div>
+//   )
+// }
 
 export default function AboutSection({ aboutRef }: AboutSectionProps) {
   // Founder data
-  const founders = [
-    {
-      name: "Kristen Valentine",
-      role: "Founder & Audio Ad Expert",
-      image: "/images/Kristen.jpeg",
-      linkedin: "https://www.linkedin.com/in/kristen-valentine-coseo-6675132a/",
-    },
-    {
-      name: "Ally Kandel",
-      role: "Founder & Audio Ad Expert",
-      image: "/images/Ally.jpeg",
-      linkedin: "https://www.linkedin.com/in/alisonkandel/",
-    },
-  ]
+  // const founders = [
+  //   {
+  //     name: "Kristen Valentine",
+  //     role: "Founder & Audio Ad Expert",
+  //     image: "/images/Kristen.jpeg",
+  //     linkedin: "https://www.linkedin.com/in/kristen-valentine-coseo-6675132a/",
+  //   },
+  //   {
+  //     name: "Ally Kandel",
+  //     role: "Founder & Audio Ad Expert",
+  //     image: "/images/Ally.jpeg",
+  //     linkedin: "https://www.linkedin.com/in/alisonkandel/",
+  //   },
+  // ]
 
   return (
     <section ref={aboutRef} id="about" className="py-20 md:py-32">

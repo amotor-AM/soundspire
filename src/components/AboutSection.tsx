@@ -233,7 +233,7 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
           </motion.div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
+        {/* <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
           {founders.map((founder, index) => (
             <FounderAvatar
               key={index}
@@ -243,7 +243,7 @@ export default function AboutSection({ aboutRef }: AboutSectionProps) {
               linkedin={founder.linkedin}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   )
